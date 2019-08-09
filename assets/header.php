@@ -32,13 +32,19 @@ $process = new Process();
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="index.php">San Roque </a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Home</a></li>
-					<li ><a href="request.php">Request <?php echo isLoggedIn()  ? $process->count_request() > 0 ? '<span class="badge">'.$process->count_request().'</span> ' : ''  : ''  ?></a></li>
-					<li ><a href="history.php">Transfer History </a></li>
+					
+					<?php 	if (isLoggedIn()) : ?>
+						<li class="active"><a href="index.php">Home</a></li>
+						<li ><a href="request.php">Request <?php echo isLoggedIn()  ? $process->count_request() > 0 ? '<span class="badge">'.$process->count_request().'</span> ' : ''  : ''  ?></a></li>
+						<li ><a href="history.php">Transfer History </a></li>
+					<?php 	else:  ?>
+						<li class="active"><a href="index.php">Home</a></li>
+					<?php 	endif ?>
+
+				
 			
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
